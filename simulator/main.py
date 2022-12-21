@@ -13,7 +13,7 @@ def simulate_incoming_images():
                 time.sleep(seconds)
                 filename = str(random.randint(1000, 9999)) + ".jpg"
                 shutil.copyfile("/data/asd.jpg", "/data/" + filename)
-                logging.info("[SIMULATOR] created image to Z:/" + filename)
+                logging.info("[SIMULATOR] created image to /data/" + filename)
             except KeyboardInterrupt:
                 logging.info("Image watcher interrupted")
                 break
@@ -30,8 +30,8 @@ def deleting_images():
                 time.sleep(seconds)
                 for file in os.listdir("/data"):
                     if file != "asd.jpg":
-                        os.remove("/data" + file)
-                        logging.info("[DELETER] deleted image from Z:/" + file)
+                        os.remove("/data/" + file)
+                        logging.info("[DELETER] deleted image from /data/" + file)
             except KeyboardInterrupt:
                 logging.info("Image watcher interrupted")
                 break
