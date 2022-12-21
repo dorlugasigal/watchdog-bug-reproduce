@@ -1,0 +1,18 @@
+# run both simulator and watcher
+
+version: "3.9"
+
+x-drive: &drive
+  type: bind
+  source: "/mnt/images"
+  target: /data
+
+services:
+  simulator:
+    build: ./simulator
+    volumes:
+      - <<: *drive
+  watcher:
+    build: ./watcher
+    volumes:
+      - <<: *drive
